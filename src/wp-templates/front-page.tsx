@@ -49,7 +49,7 @@ const Component: FaustTemplate<GetHomePageQuery> = (props) => {
             className={style.card}
           >
             <h3>Blueprints →</h3>
-            <p>Explore production ready Faust.js starter projects.</p>
+            <p className="text-red-600">Explore production ready Faust.js starter projects.</p>
           </Link>
 
           <Link
