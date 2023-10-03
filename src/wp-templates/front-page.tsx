@@ -7,6 +7,9 @@ import Footer from "../components/footer";
 import style from "../styles/front-page.module.css";
 import { GetHomePageQuery } from "../__generated__/graphql";
 import { FaustTemplate } from "@faustwp/core";
+import { Hanken_Grotesk,  } from 'next/font/google'
+
+const hanken = Hanken_Grotesk({ subsets: ['latin'] })
 
 const Component: FaustTemplate<GetHomePageQuery> = (props) => {
   const { title: siteTitle, description: siteDescription } =
@@ -24,8 +27,8 @@ const Component: FaustTemplate<GetHomePageQuery> = (props) => {
         siteDescription={siteDescription}
         menuItems={menuItems}
       />
-
-      <main className="container">
+      <div className="bg-primary">
+      <main className={`${hanken.className} container mx-auto`}>
         <EntryHeader title="Welcome to the Faust Scaffold Blueprint" />
 
         <section className={style.cardGrid}>
@@ -76,7 +79,7 @@ const Component: FaustTemplate<GetHomePageQuery> = (props) => {
           </Link>
         </section>
       </main>
-
+      </div>
       <Footer />
     </>
   );

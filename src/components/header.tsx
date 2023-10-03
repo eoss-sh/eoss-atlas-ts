@@ -1,10 +1,15 @@
 import { gql } from "../__generated__";
-import Link from "next/link";
-import style from "./header.module.css";
 import {
   HeaderGeneralSettingsFragmentFragment,
   PrimaryMenuItemFragmentFragment,
 } from "../__generated__/graphql";
+import Link from "next/link";
+import Image from "next/image";
+import { JetBrains_Mono  } from 'next/font/google'
+import logo from '../../public/logo_white.svg'
+
+
+const jb = JetBrains_Mono({ subsets: ['latin'], weight: '100' })
 
 type HeaderProps = {
   siteTitle: HeaderGeneralSettingsFragmentFragment["title"];
@@ -13,22 +18,19 @@ type HeaderProps = {
 };
 
 export default function Header({
-  siteTitle,
-  siteDescription,
   menuItems,
 }: HeaderProps) {
   return (
-    <header className={style.header}>
-      <div className="container">
-        <Link href="/" className={style.brand}>
-          <h2 className={style.siteTitle}>{siteTitle}</h2>
-          <p className={style.siteDescription}>{siteDescription}</p>
+    <header className={`${jb.className} bg-primary pt-4 pb-4 mb-12`}>
+      <div className="flex flex-row items-center justify-between container mx-auto">
+        <Link href="/" className="">
+          <Image src={logo} width={100} height={50} alt="Logo" />
         </Link>
 
-        <nav className={style.nav}>
-          <ul>
+        <nav>
+          <ul className="flex">
             {menuItems.map((item) => (
-              <li key={item.id}>
+              <li key={item.id} className="mr-8 last:mr-0 text-l text-white hover:text-secondary transition">
                 <Link href={item.uri}>{item.label}</Link>
               </li>
             ))}

@@ -5,6 +5,9 @@ import Footer from "../components/footer";
 import Header from "../components/header";
 import { GetPageQuery } from "../__generated__/graphql";
 import { FaustTemplate } from "@faustwp/core";
+import { Hanken_Grotesk,  } from 'next/font/google'
+
+const hanken = Hanken_Grotesk({ subsets: ['latin'] })
 
 const Component: FaustTemplate<GetPageQuery> = (props) => {
   // Loading state for previews
@@ -28,12 +31,10 @@ const Component: FaustTemplate<GetPageQuery> = (props) => {
         siteDescription={siteDescription}
         menuItems={menuItems}
       />
-
-      <main className="container">
-        <EntryHeader title={title} />
-        <div dangerouslySetInnerHTML={{ __html: content }} />
-      </main>
-
+        <main className={hanken.className}>
+          <EntryHeader title={title} />
+          <div dangerouslySetInnerHTML={{ __html: content }} />
+        </main>
       <Footer />
     </>
   );
