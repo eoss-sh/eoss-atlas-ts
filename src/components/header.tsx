@@ -2,6 +2,7 @@ import React from "react";
 import { gql } from "../__generated__";
 import {
   PrimaryMenuItemFragmentFragment,
+  HeaderGeneralSettingsFragmentFragment,
 } from "../__generated__/graphql";
 import Link from "next/link";
 import Image from "next/image";
@@ -14,6 +15,9 @@ const jb = JetBrains_Mono({ subsets: ['latin'], weight: '100' })
 
 type HeaderProps = {
   menuItems: PrimaryMenuItemFragmentFragment[];
+  siteTitle: HeaderGeneralSettingsFragmentFragment["title"];
+  siteDescription: HeaderGeneralSettingsFragmentFragment["description"];
+
 };
 
 export default function Header({
@@ -27,7 +31,7 @@ export default function Header({
   } 
 
   return (
-    <header className={`${jb.className} bg-primary pt-4 pb-4 mb-12`}>
+    <header className={`${jb.className} bg-primary pt-4 pb-4`}>
       <div className="flex flex-row items-center justify-between container mx-auto">
         <Link href="/" className="">
           <Image src={logo} width={100} height={50} alt="Logo" />

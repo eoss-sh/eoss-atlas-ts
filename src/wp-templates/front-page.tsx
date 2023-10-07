@@ -8,6 +8,7 @@ import style from "../styles/front-page.module.css";
 import { GetHomePageQuery } from "../__generated__/graphql";
 import { FaustTemplate } from "@faustwp/core";
 import { Hanken_Grotesk,  } from 'next/font/google'
+import TwoColumn from "../components/twoColumn";
 
 const hanken = Hanken_Grotesk({ subsets: ['latin'] })
 
@@ -27,59 +28,19 @@ const Component: FaustTemplate<GetHomePageQuery> = (props) => {
         siteDescription={siteDescription}
         menuItems={menuItems}
       />
-      <div className="bg-primary">
+      <div className="bg-primary py-36">
       <main className={`${hanken.className} container mx-auto`}>
-        <EntryHeader title="Welcome to the Faust Scaffold Blueprint" />
-
-        <section className={style.cardGrid}>
-          <Link
-            href="https://faustjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={style.card}
-          >
-            <h3>Documentation →</h3>
-            <p>
-              Learn more about Faust.js through guides and reference
-              documentation.
-            </p>
-          </Link>
-
-          <Link
-            href="https://my.wpengine.com/atlas#/create/blueprint"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={style.card}
-          >
-            <h3>Blueprints →</h3>
-            <p className="text-red-600">Explore production ready Faust.js starter projects.</p>
-          </Link>
-
-          <Link
-            href="https://wpengine.com/atlas"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={style.card}
-          >
-            <h3>Deploy →</h3>
-            <p>
-              Deploy your Faust.js app to Atlas along with your WordPress
-              instance.
-            </p>
-          </Link>
-
-          <Link
-            href="https://github.com/wpengine/faustjs"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={style.card}
-          >
-            <h3>Contribute →</h3>
-            <p>Visit us on GitHub to explore how you can contribute!</p>
-          </Link>
-        </section>
+        <div className="text-white font-light w-3/4">
+        <div className="text-9xl mb-12">😮</div>
+        <EntryHeader title="Wir schaffen Digitales, das Nutzer und Suchmaschinen begeistert." />
+        <div className="mt-12 w-2/3">
+          <p>Entwicklung, die überzeugt. Design, das fesselt. Content, der berührt. SEO-Optimierung, die Ergebnisse liefert - aus einer Hand.</p>
+        </div>
+        </div>
+        
       </main>
       </div>
+      <TwoColumn title="Unsere Leistungen" subtitle="Was wir für Sie tun können">Link</TwoColumn>
       <Footer />
     </>
   );

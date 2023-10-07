@@ -32,12 +32,12 @@ plugins: [
   plugin(function ({ addBase, theme }) {
       addBase({
           h1: {
-              fontSize: theme('fontSize.2xl'),
+              fontSize: theme('fontSize.8xl'),
+              lineHeight: theme('lineHeight.tight'),
               paddingBottom: theme('padding.8'),
           },
           h2: {
               fontSize: theme('fontSize.6xl'),
-              paddingBottom: theme('padding.8'),
           },
           h3: {
               fontSize: theme('fontSize.lg'),
